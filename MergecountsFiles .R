@@ -17,9 +17,9 @@ MergecountsFiles <- function (fileDir="path/to/counts",#file of the directory to
   cov <- list()
   for (i in names) {
     filepath <- file.path(fileDir,paste(i,filePat,sep=""))
-    cov[[i]] <- read.table(filepath,sep = fileSep, header=F, stringsAsFactors=FALSE)
-    cov[[i]]<-cov[[i]][,-2]
-    colnames(cov[[i]]) <- c("ID",i)
+    count[[i]] <- read.table(filepath,sep = fileSep, header=F, stringsAsFactors=FALSE)
+    count[[i]]<-count[[i]][,-2]
+    colnames(count[[i]]) <- c("ID",i)
   }
   df <-Reduce(function(x,y) merge(x = x, y = y, by ="ID"), cov)
   df<-df[-(1:5),]
