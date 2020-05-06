@@ -14,7 +14,7 @@ MergeCountsFiles <- function (fileDir="path/to/counts",#file of the directory to
   setwd(fileDir)
   samples = list.files(fileDir, pattern=filePat)
   names = gsub(filePat,"",samples)
-  cov <- list()
+  count <- list()
   for (i in names) {
     filepath <- file.path(fileDir,paste(i,filePat,sep=""))
     count[[i]] <- read.table(filepath,sep = fileSep, header=F, stringsAsFactors=FALSE)
