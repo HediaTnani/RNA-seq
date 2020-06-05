@@ -1,3 +1,5 @@
+#author: Hédia Tnani
+
 MergeCountsFiles <- function (fileDir="path/to/counts",#file of the directory to read in
                              filePat="_Hisat2_counts.txt", # file name pattern
                              fileSep="\t", #the column delimiter used in the file (e.g "," or "\t")
