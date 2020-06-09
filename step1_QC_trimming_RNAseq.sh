@@ -1,6 +1,6 @@
 #!/bin/bash -e
 ## Author: Hédia Tnani
-## usage : step1_QC_trimming.sh /scratch2/RNA-seq/DATASET_FINAL/dataset2 /scratch2/RNA-seq/DATASET_FINAL/dataset2_trim_test /scratch2/RNA-seq "13579" /scratch2/RNA-seq//DATASET_FINAL/trim_results_test /usr/local/Trimmomatic-0.36/adapters/ocal/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa
+## usage : step1_QC_trimming_RNAseq.sh /scratch2/RNA-seq/DATASET_FINAL/dataset2 /scratch2/RNA-seq/DATASET_FINAL/dataset2_trim /scratch2/RNA-seq/DATASET_FINAL "13579" /scratch2/RNA-seq/DATASET_FINAL/trim_results /usr/local/Trimmomatic-0.36/adapters/ocal/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa
 ## dataset 
 readDir=$1
 trimDir=$2
@@ -54,13 +54,13 @@ then
 fi
 ##################################################################################
 echo "quality check with fastqc ..."
-mkdir -p $3/QC_raw_test
-cd $3/QC_raw_test/
+mkdir -p $3/QC_raw
+cd $3/QC_raw/
 /usr/local/FastQC/Fastqc  $1/*.fastq.gz -o .
 echo "quality check done successfully ..."
 echo "multiqc ..."
-mkdir -p  $3/multiQC_raw_test
-multiqc $3/QC_raw_test/ -o $3/multiQC_raw_test
+mkdir -p  $3/multiQC_raw
+multiqc $3/QC_raw/ -o $3/multiQC_raw
 echo "multiqc done successfully..."
 echo "extracting sample name ..."
 cd $1/
@@ -83,8 +83,8 @@ do
   cp $5/${i}/${i}.$4.R1.P.fastq.gz $5/${i}/${i}.$4.R1.U.fastq.gz $5/${i}/${i}.$4.R2.P.fastq.gz $5/${i}/${i}.$4.R2.U.fastq.gz .
   done
 echo "quality recheck ..."
-mkdir -p $5/QC_trim2_test
-cd $5/QC_trim2_test/
+mkdir -p $5/QC_trim
+cd $5/QC_trim/
 echo "fastqc ..."
 /usr/local/FastQC/Fastqc $2/*.fastq.gz -o .
 echo "multiqc ..."
