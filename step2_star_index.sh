@@ -1,12 +1,10 @@
 #!/bin/bash -e
 ## Author: Hédia Tnani
-Usage: step2_star_index.sh /scratch2/RNA-seq/DATASET_FINAL/Star_results star_index 20 /scratch2/RNA-seq/referenceseq2019/mus_musculus/Mus_musculus.GRCm38.dna.toplevel.fa /scratch2/RNA-seq/referenceseq2019/mus_musculus/Mus_musculus.GRCm38.99.gtf
-## Mus musculus GRCm38 STAR index
+#Usage: ./step2_star_index.sh /scratch2/RNA-seq/DATASET_FINAL/Star_results star_index 20 /scratch2/RNA-seq/referenceseq2019/mus_musculus/Mus_musculus.GRCm38.dna.toplevel.fa /scratch2/RNA-seq/referenceseq2019/mus_musculus/Mus_musculus.GRCm38.99.gtf
+## Arguments
 res=$1
 index=$2
-##options
 cpus=$3
-## Mus musculus Ensembl GTF
 fasta=$4
 gtf=$5
 
